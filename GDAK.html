@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garotas de Anime Kawaii</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap');
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(135deg, #ffe0f7 0%, #ffe5ec 100%);
+            color: #4a4a4a;
+        }
+        .anime-card {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(255, 182, 193, 0.25);
+            border: 2px solid #ffb6d5;
+            background: #fffafd;
+            position: relative;
+        }
+        .anime-card:hover {
+            transform: translateY(-8px) scale(1.04) rotate(-2deg);
+            box-shadow: 0 12px 24px rgba(255, 182, 193, 0.35);
+            border-color: #ff6bcb;
+        }
+        .header-bg {
+            background: linear-gradient(135deg, #ffb6d5 0%, #ffd6ec 100%);
+        }
+        .heart {
+            color: #ff6bcb;
+            animation: heartbeat 1.5s infinite;
+        }
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            25% { transform: scale(1.2); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        /* Kawaii Modal */
+        .modal-bg {
+            background: rgba(255, 182, 193, 0.7);
+            backdrop-filter: blur(2px);
+        }
+        .kawaii-modal {
+            border: 4px solid #ffb6d5;
+            background: #fffafd;
+            border-radius: 2rem;
+            box-shadow: 0 8px 32px rgba(255, 182, 193, 0.25);
+            position: relative;
+            padding-top: 2.5rem;
+        }
+        .kawaii-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: #ffb6d5;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 2.5rem;
+            height: 2.5rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 2px 8px #ffb6d5a0;
+            transition: background 0.2s;
+        }
+        .kawaii-close:hover {
+            background: #ff6bcb;
+        }
+        .kawaii-heart {
+            color: #ff6bcb;
+            font-size: 2rem;
+            animation: heartbeat 1.5s infinite;
+            margin-bottom: 0.5rem;
+        }
+        /* Remove newsletter and footer for mais kawaii e limpo */
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header-bg text-white py-6 shadow-lg rounded-b-3xl mb-8">
+        <div class="container mx-auto px-4 text-center">
+            <i class="fas fa-heart kawaii-heart"></i>
+            <h1 class="text-4xl md:text-5xl font-extrabold drop-shadow-lg">Garotas de Anime Kawaii</h1>
+            <p class="text-lg mt-2 text-pink-100">Escolha sua personagem favorita!</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <h2 class="text-3xl font-bold mb-8 text-center text-pink-600">Nossas Garotas Kawaii</h2>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+            <!-- Akane -->
+            <div class="anime-card rounded-2xl overflow-hidden cursor-pointer" onclick="showModal('Akane', 'Personagem de Ranma1/2', 'akane.jpg')">
+                <img src="akane.jpg" alt="Akane" class="w-full h-64 object-cover">
+                <div class="p-4 text-center">
+                    <h3 class="font-bold text-lg mb-1 text-pink-600">Akane</h3>
+                    <span class="text-pink-400 text-xs">Ranma1/2</span>
+                </div>
+            </div>
+            <!-- Anya -->
+            <div class="anime-card rounded-2xl overflow-hidden cursor-pointer" onclick="showModal('Anya', 'Personagem de Spy x Family', 'anya.jpg')">
+                <img src="anya.jpg" alt="Anya" class="w-full h-64 object-cover">
+                <div class="p-4 text-center">
+                    <h3 class="font-bold text-lg mb-1 text-pink-600">Anya</h3>
+                    <span class="text-pink-400 text-xs">Spy x Family</span>
+                </div>
+            </div>
+            <!-- Chika -->
+            <div class="anime-card rounded-2xl overflow-hidden cursor-pointer" onclick="showModal('Chika', 'Personagem de Kaguya-sama', 'chika.jpg')">
+                <img src="chika.jpg" alt="Chika" class="w-full h-64 object-cover">
+                <div class="p-4 text-center">
+                    <h3 class="font-bold text-lg mb-1 text-pink-600">Chika</h3>
+                    <span class="text-pink-400 text-xs">Kaguya-sama</span>
+                </div>
+            </div>
+            <!-- Emilia -->
+            <div class="anime-card rounded-2xl overflow-hidden cursor-pointer" onclick="showModal('Emilia', 'Personagem de Re:Zero', 'emilia.jpg')">
+                <img src="emilia.jpg" alt="Emilia" class="w-full h-64 object-cover">
+                <div class="p-4 text-center">
+                    <h3 class="font-bold text-lg mb-1 text-pink-600">Emilia</h3>
+                    <span class="text-pink-400 text-xs">Re:Zero</span>
+                </div>
+            </div>
+            <!-- Kaguya -->
+            <div class="anime-card rounded-2xl overflow-hidden cursor-pointer" onclick="showModal('Kaguya', 'Personagem de Kaguya-sama', 'kaguya.jpg')">
+                <img src="kaguya.jpg" alt="Kaguya" class="w-full h-64 object-cover">
+                <div class="p-4 text-center">
+                    <h3 class="font-bold text-lg mb-1 text-pink-600">Kaguya</h3>
+                    <span class="text-pink-400 text-xs">Kaguya-sama</span>
+                </div>
+            </div>
+            <!-- Kanna -->
+            <div class="anime-card rounded-2xl overflow-hidden cursor-pointer" onclick="showModal('Kanna', 'Personagem de Kobayashi-san', 'kanna.jpg')">
+                <img src="kanna.jpg" alt="Kanna" class="w-full h-64 object-cover">
+                <div class="p-4 text-center">
+                    <h3 class="font-bold text-lg mb-1 text-pink-600">Kanna</h3>
+                    <span class="text-pink-400 text-xs">Kobayashi-san</span>
+                </div>
+            </div>
+            <!-- Madoka -->
+            <div class="anime-card rounded-2xl overflow-hidden cursor-pointer" onclick="showModal('Madoka', 'Personagem de Madoka Magica', 'madoka.jpg')">
+                <img src="madoka.jpg" alt="Madoka" class="w-full h-64 object-cover">
+                <div class="p-4 text-center">
+                    <h3 class="font-bold text-lg mb-1 text-pink-600">Madoka</h3>
+                    <span class="text-pink-400 text-xs">Madoka Magica</span>
+                </div>
+            </div>
+            <!-- Megumin -->
+            <div class="anime-card rounded-2xl overflow-hidden cursor-pointer" onclick="showModal('Megumin', 'Personagem de Konosuba', 'megumin.jpg')">
+                <img src="megumin.jpg" alt="Megumin" class="w-full h-64 object-cover">
+                <div class="p-4 text-center">
+                    <h3 class="font-bold text-lg mb-1 text-pink-600">Megumin</h3>
+                    <span class="text-pink-400 text-xs">Konosuba</span>
+                </div>
+            </div>
+            <!-- Miku -->
+            <div class="anime-card rounded-2xl overflow-hidden cursor-pointer" onclick="showModal('Miku', 'Personagem de The Quintessential Quintuplets', 'miku.jpg')">
+                <img src="miku.jpg" alt="Miku" class="w-full h-64 object-cover">
+                <div class="p-4 text-center">
+                    <h3 class="font-bold text-lg mb-1 text-pink-600">Miku</h3>
+                    <span class="text-pink-400 text-xs">The Quintessential Quintuplets</span>
+                </div>
+            </div>
+            <!-- Nezuko -->
+            <div class="anime-card rounded-2xl overflow-hidden cursor-pointer" onclick="showModal('Nezuko', 'Personagem de Demon Slayer', 'Nezuko.jpg')">
+                <img src="Nezuko.jpg" alt="Nezuko" class="w-full h-64 object-cover">
+                <div class="p-4 text-center">
+                    <h3 class="font-bold text-lg mb-1 text-pink-600">Nezuko</h3>
+                    <span class="text-pink-400 text-xs">Demon Slayer</span>
+                </div>
+            </div>
+            <!-- Rem -->
+            <div class="anime-card rounded-2xl overflow-hidden cursor-pointer" onclick="showModal('Rem', 'Personagem de Re:Zero', 'Rem.jpg')">
+                <img src="Rem.jpg" alt="Rem" class="w-full h-64 object-cover">
+                <div class="p-4 text-center">
+                    <h3 class="font-bold text-lg mb-1 text-pink-600">Rem</h3>
+                    <span class="text-pink-400 text-xs">Re:Zero</span>
+                </div>
+            </div>
+            <!-- Ruby -->
+            <div class="anime-card rounded-2xl overflow-hidden cursor-pointer" onclick="showModal('Ruby', 'Personagem de Oshi no ko!', 'ruby.jpg')">
+                <img src="ruby.jpg" alt="Ruby" class="w-full h-64 object-cover">
+                <div class="p-4 text-center">
+                    <h3 class="font-bold text-lg mb-1 text-pink-600">Ruby</h3>
+                    <span class="text-pink-400 text-xs">Oshi no ko!</span>
+                </div>
+            </div>
+            <!-- Shiro -->
+            <div class="anime-card rounded-2xl overflow-hidden cursor-pointer" onclick="showModal('Shiro', 'Personagem de No Game No Life', 'Shiro.jpg')">
+                <img src="Shiro.jpg" alt="Shiro" class="w-full h-64 object-cover">
+                <div class="p-4 text-center">
+                    <h3 class="font-bold text-lg mb-1 text-pink-600">Shiro</h3>
+                    <span class="text-pink-400 text-xs">No Game No Life</span>
+                </div>
+            </div>
+            <!-- Taiga -->
+            <div class="anime-card rounded-2xl overflow-hidden cursor-pointer" onclick="showModal('Taiga', 'Personagem de Toradora!', 'taiga.jpg')">
+                <img src="taiga.jpg" alt="Taiga" class="w-full h-64 object-cover">
+                <div class="p-4 text-center">
+                    <h3 class="font-bold text-lg mb-1 text-pink-600">Taiga</h3>
+                    <span class="text-pink-400 text-xs">Toradora!</span>
+                </div>
+            </div>
+            <!-- Zero Two -->
+            <div class="anime-card rounded-2xl overflow-hidden cursor-pointer" onclick="showModal('Zero Two', 'Personagem de Darling in the Franxx', 'zerotwo.jpg')">
+                <img src="zerotwo.jpg" alt="Zero Two" class="w-full h-64 object-cover">
+                <div class="p-4 text-center">
+                    <h3 class="font-bold text-lg mb-1 text-pink-600">Zero Two</h3>
+                    <span class="text-pink-400 text-xs">Darling in the Franxx</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal de informações da personagem -->
+<div id="modalPersonagem" style="display:none;" class="fixed inset-0 modal-bg flex items-center justify-center z-50">
+    <div class="kawaii-modal max-w-xs w-full p-6 relative text-center"
+         style="background: linear-gradient(135deg, #fffafd 80%, #ffe0f7 100%);
+                border: 4px solid transparent;
+                border-image: linear-gradient(135deg, #ffb6d5, #ff6bcb, #ffd6ec) 1;
+                box-shadow: 0 8px 32px 0 rgba(255,182,193,0.35), 0 0 0 8px #fffafd;">
+        <button onclick="closeModal()" class="kawaii-close" aria-label="Fechar">&times;</button>
+        <div class="flex justify-center mb-2">
+            <i class="fas fa-heart kawaii-heart mx-1"></i>
+            <i class="fas fa-star text-yellow-400 mx-1 animate-bounce"></i>
+            <i class="fas fa-heart kawaii-heart mx-1"></i>
+        </div>
+        <img id="modalImg" src="" alt="" class="w-32 h-44 object-cover mx-auto rounded-2xl mb-3 border-4 border-pink-200 shadow-lg" style="box-shadow: 0 0 0 6px #ffe0f7;">
+        <h3 id="modalNome" class="text-2xl font-extrabold text-pink-600 mb-1 drop-shadow">Nome</h3>
+        <p id="modalInfo" class="text-pink-500 mb-2 font-semibold">Descrição</p>
+        <div id="modalExtra" class="text-sm text-pink-400 italic mb-2 flex items-center justify-center gap-1">
+            <span class="text-lg">🌸</span>
+            <span id="modalCuriosidade">Kawaii é um estilo de vida!</span>
+            <span class="text-lg">🌸</span>
+        </div>
+        <div class="flex justify-center gap-2 mt-2">
+            <span class="text-pink-400 text-xl animate-bounce">♡</span>
+            <span class="text-pink-300 text-xl animate-pulse">✧</span>
+            <span class="text-pink-400 text-xl animate-bounce">♡</span>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Modal functions
+    function showModal(nome, info, img) {
+        document.getElementById('modalNome').textContent = nome;
+        document.getElementById('modalInfo').textContent = info;
+        document.getElementById('modalImg').src = img;
+
+        // Exemplo de curiosidade personalizada por personagem
+        let curiosidade = "Kawaii é um estilo de vida!";
+        switch (nome) {
+            case "Akane":
+                curiosidade = "Ama artes marciais e doces 🍰";
+                break;
+            case "Anya":
+                curiosidade = "Adora amendoim e tem poderes telepáticos 🥜";
+                break;
+            case "Chika":
+                curiosidade = "Rainha das dancinhas fofas 💃";
+                break;
+            case "Emilia":
+                curiosidade = "Tem um espírito chamado Puck ❄️";
+                break;
+            case "Kaguya":
+                curiosidade = "É super inteligente e competitiva 🧠";
+                break;
+            case "Kanna":
+                curiosidade = "Ama dormir e comer doces 🍬";
+                break;
+            case "Madoka":
+                curiosidade = "Tem um coração puro e deseja ajudar todos 💖";
+                break;
+            case "Megumin":
+                curiosidade = "Só usa magia de explosão! 💥";
+                break;
+            case "Miku":
+                curiosidade = "Ama fones de ouvido e história 🎧";
+                break;
+            case "Nezuko":
+                curiosidade = "Irmã protetora e super fofa 🐾";
+                break;
+            case "Rem":
+                curiosidade = "Leal, dedicada e ótima cozinheira 🍳";
+                break;
+            case "Ruby":
+                curiosidade = "Sonha em ser idol como sua mãe 🌟";
+                break;
+            case "Shiro":
+                curiosidade = "Gênio dos jogos e lógica ♟️";
+                break;
+            case "Taiga":
+                curiosidade = "Pequena, mas com muita personalidade 🐯";
+                break;
+            case "Zero Two":
+                curiosidade = "Ama doces e tem chifrinhos rosas 🍬";
+                break;
+        }
+        document.getElementById('modalCuriosidade').textContent = curiosidade;
+
+        document.getElementById('modalPersonagem').style.display = 'flex';
+    }
+    function closeModal() {
+        document.getElementById('modalPersonagem').style.display = 'none';
+    }
+    // Fecha o modal ao clicar fora do quadro
+    document.getElementById('modalPersonagem').addEventListener('click', function(e) {
+        if (e.target === this) closeModal();
+    });
+</script>
+</body>
+</html>
